@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f172a">
+<title>APYVION — Secure Vault</title>
+<meta name="description" content="APYVION Secure Vault — ব্যক্তিগত ফাইল, ছবি, ভিডিও ও নথি এক জায়গায়।">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/vault.css">
+</head>
+<body>
+<main class="jf-wrap vault-wrap">
+  <header class="jf-header vault-header">
+    <div class="jf-logo">🔐 APYVION</div>
+    <h1 class="jf-title">Secure Vault</h1>
+    <p class="jf-subtitle">আপনার গুরুত্বপূর্ণ ফাইল — গুছানো, খুঁজে পাওয়া সহজ, owner-only access</p>
+  </header>
+
+  <section id="authPanel" class="jf-panel vault-auth">
+    <h2>🔑 Vault ব্যবহার করতে Sign in করুন</h2>
+    <p class="muted">Firebase Auth চালু থাকলে আপনার ফাইল শুধু আপনার account-এর অধীনে থাকবে।</p>
+    <form id="loginForm" class="vault-login-form">
+      <input id="email" type="email" autocomplete="email" placeholder="Email" required>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Password" minlength="6" required>
+      <button class="jf-btn jf-btn-primary" type="submit">🔓 Sign in</button>
+      <button class="jf-btn" type="button" id="signupBtn">➕ Create account</button>
+    </form>
+    <div id="authNotice" class="jf-notice" hidden></div>
+  </section>
+
+  <section id="vaultPanel" hidden>
+    <div class="vault-toolbar jf-panel">
+      <div>
+        <strong id="welcomeText">My Vault</strong>
+        <span id="vaultStats" class="muted"></span>
+      </div>
+      <div class="vault-actions">
+        <input id="searchInput" class="vault-search" type="search" placeholder="🔎 ফাইল খুঁজুন...">
+        <select id="sortSelect" class="vault-select" aria-label="Sort">
+          <option value="newest">নতুন আগে</option>
+          <option value="oldest">পুরোনো আগে</option>
+          <option value="name">নাম A–Z</option>
+          <option value="size">বড় ফাইল আগে</option>
+        </select>
+        <button id="logoutBtn" class="jf-btn">Logout</button>
+      </div>
+    </div>
+
+    <div id="folderGrid" class="vault-grid"></div>
+
+    <section id="folderPanel" class="jf-panel vault-folder-panel" hidden>
+      <div class="folder-head">
+        <button id="backFolders" class="jf-btn">← সব ফোল্ডার</button>
+        <div><h2 id="folderTitle"></h2><p id="folderHint" class="muted"></p></div>
+        <label class="jf-btn jf-btn-primary upload-label">⬆️ Upload<input id="fileInput" type="file" multiple hidden></label>
+      </div>
+      <div id="itemList" class="vault-list"></div>
+      <div id="emptyState" class="vault-empty" hidden>এই ফোল্ডারে এখনো কোনো ফাইল নেই। Upload দিয়ে শুরু করুন।</div>
+    </section>
+  </section>
+
+  <p class="jf-footer-note">APYVION Secure Vault · Upload · Preview · Download · Rename · Favorite · Trash · Restore · Permanent Delete</p>
+  <p class="jf-footer-note"><a href="index.html">← APYVION Home</a></p>
+</main>
+<script type="module" src="assets/vault.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/firebase/firebase-tools/master/schema/firebase-config.json",
+  "hosting": {
+    "public": "aifactory",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.zip",
+      "**/*.md"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public,max-age=300" }
+        ]
+      },
+      {
+        "source": "**/*.@(html|json)",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      }
+    ],
+    "rewrites": [
+      { "source": "/app", "destination": "/app-builder.html" },
+      { "source": "/planner", "destination": "/product-planner.html" },
+      { "source": "/secure", "destination": "/secure.html" },
+      { "source": "/test-repair", "destination": "/test-repair.html" },
+      { "source": "/ui-ux", "destination": "/ui-ux-designer.html" },
+      { "source": "/deploy", "destination": "/deploy.html" }
+    ]
+  },
+  "firestore": {
+    "rules": "aifactory/firestore.rules",
+    "indexes": "aifactory/firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "aifactory/storage.rules"
+  },
+  "functions": [
+    {
+      "source": "aifactory/functions/cloudshelf",
+      "codebase": "cloudshelf",
+      "runtime": "nodejs20"
+    },
+    {
+      "source": "aifactory/functions/ai-backend",
+      "codebase": "ai-backend",
+      "runtime": "nodejs20"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APYVION — App Builder</title>
+<meta name="description" content="Product Plan ও Design System থেকে সত্যিকারের Frontend কোড এবং একটা Backend/Database Scaffold তৈরি">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/app-builder.css">
+</head>
+<body>
+<main class="jf-wrap">
+
+  <header class="jf-header">
+    <div class="jf-logo">🏭 APYVION</div>
+    <h1 class="jf-title">💻 App Builder</h1>
+    <p class="jf-subtitle">Product Plan ও Design System থেকে সত্যিকারের Frontend কোড এবং একটা Backend/Database Scaffold তৈরি</p>
+  </header>
+
+  <div id="jfBuildEmpty" class="jf-panel" style="text-align:center" hidden>
+    <p style="margin:0 0 16px">এখনো কোনো Product Plan বা Design System পাওয়া যায়নি। প্রথমে আগের ধাপগুলো সম্পন্ন করুন।</p>
+    <a class="jf-btn jf-btn-primary" href="index.html">⬅️ Idea Center থেকে শুরু করুন</a>
+  </div>
+
+  <div id="jfBuildMain" hidden>
+
+    <section class="jf-panel" style="text-align:center">
+      <p style="margin:0 0 16px;color:var(--jf-text-dim)">
+        নিচের বাটনে ক্লিক করলে আপনার Product Plan ও Design System অনুযায়ী
+        সম্পূর্ণ Frontend কোড এবং প্রয়োজন অনুযায়ী একটা Backend/Database Scaffold তৈরি হবে।
+      </p>
+      <button class="jf-btn jf-btn-primary" id="jfGenerateBtn">🏗️ App Code তৈরি করুন</button>
+    </section>
+
+    <div id="jfBuildNotice" class="jf-notice" hidden style="margin:18px 0"></div>
+
+    <section id="jfBuildResult" hidden>
+
+      <section class="jf-panel" style="margin-top:24px">
+        <h3 style="margin:0 0 12px;color:var(--jf-text-dim);text-transform:uppercase;font-size:14px;letter-spacing:.5px">📁 File Structure</h3>
+        <div id="jfFileTree" class="jf-file-tree"></div>
+      </section>
+
+      <section class="jf-grid" style="margin-top:24px">
+        <div class="jf-block">
+          <h3>🖥️ Frontend</h3>
+          <p id="jfFrontendSummary"></p>
+        </div>
+        <div class="jf-block">
+          <h3>🗄️ Backend / Database</h3>
+          <p id="jfBackendSummary"></p>
+        </div>
+      </section>
+
+      <div class="jf-actions" style="margin-top:24px">
+        <a class="jf-btn" href="ui-ux-designer.html">⬅️ UI/UX Designer-এ ফিরুন</a>
+        <button class="jf-btn" id="jfDownloadBtn">⬇️ কোড ZIP ডাউনলোড করুন</button>
+        <button class="jf-btn jf-btn-primary" id="jfProceedTest">➡️ Test &amp; Repair-এ পাঠান</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <p class="jf-footer-note">App Builder — Master Structure Section 04 · পরবর্তী Module: 🧪 Test &amp; Repair (Section 05)</p>
+
+</main>
+<script src="ai-config.js"></script>
+<script src="assets/projects.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/app-builder-kb.js"></script>
+<script src="assets/app-builder.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/firebase-client.js"></script>
+</body>
+</html>

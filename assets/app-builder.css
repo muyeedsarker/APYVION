@@ -1,0 +1,25 @@
+.jf-file-tree {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.9;
+  background: var(--jf-panel-2);
+  border: 1px solid var(--jf-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  color: var(--jf-text);
+}
+
+.jf-file-tree .jf-tree-folder {
+  color: var(--jf-accent-2);
+  font-weight: 600;
+}
+
+.jf-file-tree .jf-tree-file {
+  color: var(--jf-text-dim);
+}
+
+.jf-file-tree .jf-tree-indent {
+  display: inline-block;
+  width: 20px;
+}

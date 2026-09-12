@@ -1,0 +1,8 @@
+{
+  "name": "aifactory-ai-backend-functions",
+  "private": true,
+  "engines": { "node": "20" },
+  "dependencies": {
+    "firebase-functions": "^6.0.0"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APYVION — Deploy</title>
+<meta name="description" content="Secured কোডের সাথে Docker/Hosting Config ও একটা ধাপে-ধাপে Deploy গাইড যুক্ত করা">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/app-builder.css">
+</head>
+<body>
+<main class="jf-wrap">
+
+  <header class="jf-header">
+    <div class="jf-logo">🏭 APYVION</div>
+    <h1 class="jf-title">🚀 Deploy</h1>
+    <p class="jf-subtitle">Secured কোডের সাথে Docker/Hosting Config ও একটা ধাপে-ধাপে Deploy গাইড যুক্ত করা</p>
+  </header>
+
+  <div id="jfDeployEmpty" class="jf-panel" style="text-align:center" hidden>
+    <p style="margin:0 0 16px">এখনো কোনো তৈরি করা App Code পাওয়া যায়নি। প্রথমে আগের ধাপগুলো সম্পন্ন করুন।</p>
+    <a class="jf-btn jf-btn-primary" href="app-builder.html">⬅️ App Builder-এ যান</a>
+  </div>
+
+  <div id="jfDeployMain" hidden>
+
+    <section class="jf-panel" style="text-align:center">
+      <p style="margin:0 0 16px;color:var(--jf-text-dim)">
+        APYVION নিজে থেকে কোনো Hosting/Cloud সার্ভিসে সরাসরি Deploy করে না —
+        এই ধাপ প্রয়োজনীয় Docker/Hosting Config ফাইল ও একটা স্পষ্ট, ধাপে-ধাপে
+        Deploy গাইড তৈরি করে দেয়, যা আপনি নিজের পছন্দের Platform-এ ব্যবহার করবেন।
+      </p>
+      <button class="jf-btn jf-btn-primary" id="jfGenDeployBtn">🚀 Deploy Package তৈরি করুন</button>
+    </section>
+
+    <div id="jfDeployNotice" class="jf-notice" hidden style="margin:18px 0"></div>
+
+    <section id="jfDeployResult" hidden>
+
+      <section class="jf-panel" style="margin-top:24px">
+        <h3 style="margin:0 0 12px;color:var(--jf-text-dim);text-transform:uppercase;font-size:14px;letter-spacing:.5px">📁 Deploy Package-এ যা যুক্ত হলো</h3>
+        <div id="jfDeployFileTree" class="jf-file-tree"></div>
+      </section>
+
+      <section class="jf-grid" style="margin-top:24px">
+        <div class="jf-block">
+          <h3>🖥️ Frontend Hosting</h3>
+          <p id="jfDeployFrontendSummary"></p>
+        </div>
+        <div class="jf-block">
+          <h3>🗄️ Backend / Database Hosting</h3>
+          <p id="jfDeployBackendSummary"></p>
+        </div>
+      </section>
+
+      <div class="jf-actions" style="margin-top:24px">
+        <a class="jf-btn" href="secure.html">⬅️ Secure-এ ফিরুন</a>
+        <button class="jf-btn jf-btn-primary" id="jfDownloadDeployBtn">⬇️ Deploy Package ZIP ডাউনলোড করুন</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <p class="jf-footer-note">Deploy — Master Structure Section 07 · এরপর: 🌐 Live — আপনার বেছে নেওয়া Platform-এ প্রকৃত Deploy (এই Factory-র বাইরে ঘটে)</p>
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/deploy.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/firebase-client.js"></script>
+</body>
+</html>

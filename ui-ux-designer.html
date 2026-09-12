@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APYVION — AI UI/UX Designer</title>
+<meta name="description" content="আপনার Product Plan থেকে Brand Direction, Color, Typography ও লাইভ প্রিভিউ">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/preview.css">
+</head>
+<body>
+<main class="jf-wrap">
+
+  <header class="jf-header">
+    <div class="jf-logo">🏭 APYVION</div>
+    <h1 class="jf-title">🎨 AI UI/UX Designer</h1>
+    <p class="jf-subtitle">আপনার Product Plan থেকে Brand Direction, Color, Typography ও লাইভ প্রিভিউ</p>
+  </header>
+
+  <div id="jfDesignLoading" class="jf-panel" style="text-align:center;color:var(--jf-text-dim)">
+    ⏳ Design System তৈরি হচ্ছে...
+  </div>
+
+  <div id="jfDesignEmpty" class="jf-panel" style="text-align:center" hidden>
+    <p style="margin:0 0 16px">এখনো কোনো Product Plan পাওয়া যায়নি। প্রথমে Idea Center ও AI Product Planner ধাপ সম্পন্ন করুন।</p>
+    <a class="jf-btn jf-btn-primary" href="index.html">⬅️ Idea Center থেকে শুরু করুন</a>
+  </div>
+
+  <div id="jfDesignMain" hidden>
+    <section class="jf-panel" style="margin-bottom:24px">
+      <label class="jf-label">✨ Premium Design Generator — একটা Direction বাছাই করুন</label>
+      <div id="jfDirChips" class="jf-dir-chips"></div>
+    </section>
+
+    <div id="jfDesignNotice" class="jf-notice" hidden style="margin-bottom:18px"></div>
+
+    <section id="jfDesignInfo"></section>
+
+    <section class="jf-panel" style="margin-top:24px">
+      <div id="jfPreview" class="jf-preview-frame"></div>
+    </section>
+
+    <div class="jf-actions" style="margin-top:24px">
+      <a class="jf-btn" href="product-planner.html">⬅️ Product Planner-এ ফিরুন</a>
+      <button class="jf-btn jf-btn-primary" id="jfProceedBuild">➡️ App Builder-এ পাঠান</button>
+    </div>
+  </div>
+
+  <p class="jf-footer-note">AI UI/UX Designer — Master Structure Section 03 · পরবর্তী Module: 💻 App Builder (Section 04)</p>
+
+</main>
+<script src="ai-config.js"></script>
+<script src="assets/projects.js"></script>
+<script src="assets/design-kb.js"></script>
+<script src="assets/ui-ux-designer.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/firebase-client.js"></script>
+</body>
+</html>

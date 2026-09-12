@@ -1,0 +1,11 @@
+{
+  "name": "ai-app-factory-firebase-hosting",
+  "private": true,
+  "author": "Md. Abdul Muyeed Sarker",
+  "scripts": {
+    "firebase:deploy": "firebase deploy --only hosting",
+    "firebase:preview": "firebase hosting:channel:deploy preview",
+    "firebase:rules": "firebase deploy --only firestore,storage"
+  },
+  "version": "1.1.0"
+}

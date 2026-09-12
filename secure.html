@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APYVION — Secure</title>
+<meta name="description" content="Test &amp; Repair-এর ফলাফল নিয়ে একটা স্বয়ংক্রিয় Security Review, যা নিরাপদে করা যায় তা মেরামত">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/app-builder.css">
+<link rel="stylesheet" href="assets/test-repair.css">
+</head>
+<body>
+<main class="jf-wrap">
+
+  <header class="jf-header">
+    <div class="jf-logo">🏭 APYVION</div>
+    <h1 class="jf-title">🔒 Secure</h1>
+    <p class="jf-subtitle">Test &amp; Repair-এর ফলাফল নিয়ে একটা স্বয়ংক্রিয় Security Review, যা নিরাপদে করা যায় তা মেরামত</p>
+  </header>
+
+  <div id="jfSecEmpty" class="jf-panel" style="text-align:center" hidden>
+    <p style="margin:0 0 16px">এখনো কোনো তৈরি করা App Code পাওয়া যায়নি। প্রথমে App Builder ও Test &amp; Repair ধাপ সম্পন্ন করুন।</p>
+    <a class="jf-btn jf-btn-primary" href="app-builder.html">⬅️ App Builder-এ যান</a>
+  </div>
+
+  <div id="jfSecMain" hidden>
+
+    <section class="jf-panel" style="text-align:center">
+      <p style="margin:0 0 16px;color:var(--jf-text-dim)">
+        নিচের বাটনে ক্লিক করলে কোডে Hardcoded Secret, খোলা CORS, অনুপস্থিত
+        Security Header, ও Password Storage প্যাটার্ন চেক করা হবে — যা নিরাপদে
+        স্বয়ংক্রিয়ভাবে ঠিক করা যায় তা করা হবে, বাকিটা স্পষ্টভাবে রিপোর্ট করা হবে।
+      </p>
+      <button class="jf-btn jf-btn-primary" id="jfRunSecBtn">🔒 Security Review চালান</button>
+    </section>
+
+    <div id="jfSecNotice" class="jf-notice" hidden style="margin:18px 0"></div>
+
+    <section id="jfSecResult" hidden>
+
+      <section class="jf-panel" style="margin-top:24px">
+        <div class="jf-badges" style="margin-bottom:16px">
+          <span class="jf-badge" id="jfSecBadgePass">✅ Passed: 0</span>
+          <span class="jf-badge" id="jfSecBadgeRepaired">🔧 Repaired: 0</span>
+          <span class="jf-badge" id="jfSecBadgeWarn">⚠️ Manual attention: 0</span>
+        </div>
+        <div id="jfSecCheckList" class="jf-check-list"></div>
+      </section>
+
+      <section class="jf-panel" style="margin-top:24px">
+        <h3 style="margin:0 0 10px;color:var(--jf-text-dim);text-transform:uppercase;font-size:14px;letter-spacing:.5px">📄 SECURITY.md তৈরি হয়েছে</h3>
+        <p style="color:var(--jf-text-dim);margin:0">Deploy-এর আগে যা করণীয় তার একটা তালিকা ZIP-এর মধ্যে <code>SECURITY.md</code> ফাইলে যুক্ত করা হয়েছে।</p>
+      </section>
+
+      <div class="jf-actions" style="margin-top:24px">
+        <a class="jf-btn" href="test-repair.html">⬅️ Test &amp; Repair-এ ফিরুন</a>
+        <button class="jf-btn" id="jfDownloadSecuredBtn">⬇️ Secured কোড ZIP ডাউনলোড করুন</button>
+        <button class="jf-btn jf-btn-primary" id="jfProceedDeploy">➡️ Deploy-এ পাঠান</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <p class="jf-footer-note">Secure — Master Structure Section 06 · পরবর্তী Module: 🚀 Deploy (Section 07)</p>
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/secure.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/firebase-client.js"></script>
+</body>
+</html>
