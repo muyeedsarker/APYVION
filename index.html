@@ -1,82 +1,11 @@
 <!doctype html>
 <html lang="bn">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>APYVION — Idea Center</title>
-<meta name="description" content="Idea → Plan → Design → Build → Test → Repair → Secure → Deploy → Live">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<main class="jf-wrap">
-
-  <header class="jf-header">
-    <div class="jf-logo">🏭 APYVION</div>
-    <h1 class="jf-title">আপনার Idea লিখুন, বাকিটা Factory বুঝে নেবে</h1>
-    <p class="jf-subtitle">Idea → Plan → Design → Build → Test → Repair → Secure → Deploy → Live</p>
-  </header>
-
-  <section class="jf-panel" style="margin-bottom:20px">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-      <h2 style="margin:0">📁 আমার প্রজেক্ট</h2>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button type="button" class="jf-btn" id="jfProjectsToggle">তালিকা দেখুন</button>
-        <button type="button" class="jf-btn" id="jfNewProjectBtn">✨ নতুন Idea শুরু করুন</button>
-      </div>
-    </div>
-    <div id="jfProjectsPanel" hidden style="margin-top:14px"></div>
-  </section>
-
-  <section class="jf-panel" style="margin-bottom:20px">
-    <h2 style="margin-top:0">💼 Professional Services Center</h2>
-    <p>ক্লায়েন্টের Website, App, Social Media, Branding, Audit, Repair, Security ও Deployment-এর কাজ পেশাদারভাবে পরিচালনা করুন।</p>
-    <div class="jf-submit-row" style="gap:12px;display:flex;flex-wrap:wrap">
-      <a class="jf-btn jf-btn-primary" href="services.html">💼 Client Project শুরু করুন</a>
-      <a class="jf-btn" href="social.html">🌐 Social Media Studio</a>
-    </div>
-  </section>
-
-  <section class="jf-panel" style="margin-bottom:20px">
-    <h2 style="margin-top:0">🧪 Project Check</h2>
-    <p>আপনার project এখন সরাসরি ZIP অথবা Live/Preview Link দিয়ে পরীক্ষা করুন।</p>
-    <div class="jf-submit-row" style="gap:12px;display:flex;flex-wrap:wrap">
-      <a class="jf-btn jf-btn-primary" href="test-repair.html">📦 ZIP / 🔗 Link Check</a>
-      <a class="jf-btn" href="deploy.html">🚀 Deploy Check</a>
-    </div>
-  </section>
-
-  <section class="jf-panel">
-    <form id="jfIdeaForm">
-      <label class="jf-label" for="jfIdeaInput">What do you want to build?</label>
-      <textarea id="jfIdeaInput" placeholder="যেমন: আমি একটি Matrimony App বানাতে চাই যেখানে ব্যবহারকারীরা প্রোফাইল বানিয়ে একে অপরকে খুঁজে পাবে এবং ম্যাচ হলে চ্যাট করতে পারবে।"></textarea>
-
-      <div class="jf-examples">
-        <button type="button" class="jf-example-chip">আমি একটি Matrimony App বানাতে চাই</button>
-        <button type="button" class="jf-example-chip">আমি একটি Restaurant Management System বানাতে চাই</button>
-        <button type="button" class="jf-example-chip">আমি একটি Online Course/E-learning Platform বানাতে চাই</button>
-        <button type="button" class="jf-example-chip">আমি একটি ছোট ব্যবসার জন্য E-commerce Store বানাতে চাই</button>
-      </div>
-
-      <div id="jfNotice" class="jf-notice" hidden></div>
-
-      <div class="jf-submit-row">
-        <button type="submit" id="jfSubmit" class="jf-btn jf-btn-primary">✨ Idea বিশ্লেষণ করুন</button>
-      </div>
-    </form>
-  </section>
-
-  <section id="jfResult" class="jf-result" hidden></section>
-
-  <p class="jf-footer-note">Idea Center — Master Structure Section 01 · পরবর্তী Module: 🏗️ AI Product Planner (Section 02)</p>
-  <p class="jf-footer-note">Creator: Md. Abdul Muyeed Sarker</p>
-
-</main>
-<script src="ai-config.js"></script>
-<script src="assets/projects.js"></script>
-<script src="assets/knowledge-base.js"></script>
-<script src="assets/idea-center.js"></script>
-<script src="assets/projects-ui.js"></script>
-<script src="firebase-config.js"></script>
-<script type="module" src="assets/firebase-client.js"></script>
-</body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APYVION — Idea Center</title><meta name="description" content="Idea → Plan → Design → Build → Test → Repair → Secure → Deploy → Live"><link rel="stylesheet" href="assets/style.css"></head>
+<body><main class="jf-wrap">
+<header class="jf-header"><div class="jf-logo">🏭 APYVION</div><h1 class="jf-title">আপনার Idea লিখুন, বাকিটা Factory বুঝে নেবে</h1><p class="jf-subtitle">Idea → Plan → Design → Build → Test → Repair → Secure → Deploy → Live</p></header>
+<section class="jf-panel" style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><h2 style="margin:0">📁 আমার প্রজেক্ট</h2><div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="jf-btn" id="jfProjectsToggle">তালিকা দেখুন</button><button type="button" class="jf-btn" id="jfNewProjectBtn">✨ নতুন Idea শুরু করুন</button></div></div><div id="jfProjectsPanel" hidden style="margin-top:14px"></div></section>
+<section class="jf-panel" style="margin-bottom:20px"><h2 style="margin-top:0">💼 Professional Services Center</h2><p>ক্লায়েন্টের Website, App, Social Media, Branding, Audit, Repair, Security ও Deployment-এর কাজ পেশাদারভাবে পরিচালনা করুন।</p><div class="jf-submit-row" style="gap:12px;display:flex;flex-wrap:wrap"><a class="jf-btn jf-btn-primary" href="services.html">💼 Client Project শুরু করুন</a><a class="jf-btn" href="social.html">🌐 Social Media Studio</a><a class="jf-btn" href="project-memory.html">🧠 Project Memory</a></div></section>
+<section class="jf-panel" style="margin-bottom:20px"><h2 style="margin-top:0">🧪 Project Check</h2><p>আপনার project এখন সরাসরি ZIP অথবা Live/Preview Link দিয়ে পরীক্ষা করুন।</p><div class="jf-submit-row" style="gap:12px;display:flex;flex-wrap:wrap"><a class="jf-btn jf-btn-primary" href="test-repair.html">📦 ZIP / 🔗 Link Check</a><a class="jf-btn" href="deploy.html">🚀 Deploy Check</a></div></section>
+<section class="jf-panel"><form id="jfIdeaForm"><label class="jf-label" for="jfIdeaInput">What do you want to build?</label><textarea id="jfIdeaInput" placeholder="যেমন: আমি একটি Matrimony App বানাতে চাই যেখানে ব্যবহারকারীরা প্রোফাইল বানিয়ে একে অপরকে খুঁজে পাবে এবং ম্যাচ হলে চ্যাট করতে পারবে।"></textarea><div class="jf-examples"><button type="button" class="jf-example-chip">আমি একটি Matrimony App বানাতে চাই</button><button type="button" class="jf-example-chip">আমি একটি Restaurant Management System বানাতে চাই</button><button type="button" class="jf-example-chip">আমি একটি Online Course/E-learning Platform বানাতে চাই</button><button type="button" class="jf-example-chip">আমি একটি ছোট ব্যবসার জন্য E-commerce Store বানাতে চাই</button></div><div id="jfNotice" class="jf-notice" hidden></div><div class="jf-submit-row"><button type="submit" id="jfSubmit" class="jf-btn jf-btn-primary">✨ Idea বিশ্লেষণ করুন</button></div></form></section>
+<section id="jfResult" class="jf-result" hidden></section><p class="jf-footer-note">Idea Center — Master Structure Section 01 · পরবর্তী Module: 🏗️ AI Product Planner (Section 02)</p><p class="jf-footer-note">Creator: Md. Abdul Muyeed Sarker</p></main>
+<script src="ai-config.js"></script><script src="assets/projects.js"></script><script src="assets/knowledge-base.js"></script><script src="assets/idea-center.js"></script><script src="assets/projects-ui.js"></script><script src="firebase-config.js"></script><script type="module" src="assets/firebase-client.js"></script></body></html>
