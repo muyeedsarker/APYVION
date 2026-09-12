@@ -1,8 +1,42 @@
 <!doctype html>
-<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APYVION — Project Memory</title><link rel="stylesheet" href="assets/style.css"><script src="assets/project-memory.js"></script><style>.pm{max-width:1150px;margin:auto;padding:22px}.card{background:#fff;border:1px solid #e8e8ee;border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 8px 28px rgba(0,0,0,.06)}.hero{text-align:center}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:700;cursor:pointer;background:#f0eef5;text-decoration:none;color:#222}.primary{background:#64158f;color:#fff}.item{border:1px solid #eee;border-radius:13px;padding:14px;margin:9px 0}.muted{color:#777;font-size:13px}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f1edf6;margin:2px;font-size:12px;font-weight:700}</style></head><body><main class="pm"><section class="card hero"><div style="font-size:32px">🧠📁</div><h1>Project Memory</h1><p>APYVION-এর client work, Social Media Studio এবং future App Factory modules-এর shared project history এক জায়গায়।</p><div class="actions" style="justify-content:center"><a class="btn" href="index.html">← Home</a><a class="btn primary" href="services.html">💼 Services Center</a><a class="btn" href="social.html">🌐 Social Studio</a></div></section><section class="card"><h2>📂 Saved Projects <span id="count" class="badge">0</span></h2><div id="list"></div></section><section class="card"><h3>🔐 Memory Safety</h3><p class="muted">Project information, status, tasks and work history রাখা হয়। Password, OTP, access token বা secret credential এই memory-তে সংরক্ষণ করা হয় না। বর্তমানে storage browser-এর localStorage-এ; backend sync পরে অনুমোদিতভাবে যোগ করা যাবে।</p></section></main><script>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APYVION — Project Memory</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/project-memory.js"></script>
+<style>
+.pm{max-width:1150px;margin:auto;padding:22px;color:#222}
+.card{background:#fff;color:#222;border:1px solid #e8e8ee;border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 8px 28px rgba(0,0,0,.06)}
+.hero{text-align:center;color:#222}
+.hero h1,.card h2,.card h3{color:#222!important}
+.card p,.card strong,.item,.item div,.actions{color:#222}
+.actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:700;cursor:pointer;background:#f0eef5;text-decoration:none;color:#222!important}
+.primary{background:#64158f;color:#fff!important}
+.item{border:1px solid #eee;border-radius:13px;padding:14px;margin:9px 0;background:#fff}
+.muted{color:#555!important;font-size:13px}
+.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f1edf6;color:#333;margin:2px;font-size:12px;font-weight:700}
+@media(max-width:600px){.pm{padding:12px}.card{padding:15px}.hero h1{font-size:25px}}
+</style>
+</head>
+<body>
+<main class="pm">
+<section class="card hero">
+<div style="font-size:32px">🧠📁</div>
+<h1>Project Memory</h1>
+<p>APYVION-এর client work, Social Media Studio এবং future App Factory modules-এর shared project history এক জায়গায়।</p>
+<div class="actions" style="justify-content:center"><a class="btn" href="index.html">← Home</a><a class="btn primary" href="services.html">💼 Services Center</a><a class="btn" href="social.html">🌐 Social Studio</a></div>
+</section>
+<section class="card"><h2>📂 Saved Projects <span id="count" class="badge">0</span></h2><div id="list"></div></section>
+<section class="card"><h3>🔐 Memory Safety</h3><p class="muted">Project information, status, tasks and work history রাখা হয়। Password, OTP, access token বা secret credential এই memory-তে সংরক্ষণ করা হয় না। বর্তমানে storage browser-এর localStorage-এ; backend sync পরে অনুমোদিতভাবে যোগ করা যাবে।</p></section>
+</main>
+<script>
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function render(){const list=window.APYVION_MEMORY.list();document.getElementById('count').textContent=list.length;const box=document.getElementById('list');if(!list.length){box.innerHTML='<p class="muted">এখনো কোনো shared project নেই। Services Center বা Social Media Studio থেকে Save Project করুন।</p>';return}box.innerHTML=list.map(p=>{const services=(p.services||[]).map(x=>'<span class="badge">'+esc(x)+'</span>').join('');const platforms=(p.platforms||[]).map(x=>'<span class="badge">'+esc(x)+'</span>').join('');const mod=esc(p.module||'');return '<div class="item"><strong>'+esc(p.project||'Untitled Project')+'</strong><div class="muted">Client: '+esc(p.client||'—')+' · Module: '+mod+' · Status: '+esc(p.status||'New')+'</div><div style="margin-top:7px">'+services+platforms+'</div><div class="actions" style="margin-top:10px"><button class="btn" onclick="openProject(\''+esc(p.id)+'\')">▶️ Resume</button><button class="btn" onclick="removeProject(\''+esc(p.id)+'\')">🗑️ Delete</button></div></div>'}).join('')}
 function openProject(id){const p=window.APYVION_MEMORY.get(id);if(!p)return;window.APYVION_MEMORY.touch(id,'Project resumed from Project Memory');if(p.module==='Social Media Studio')location.href='social.html?memoryId='+encodeURIComponent(id);else if(p.module==='Professional Services Center')location.href='services.html?memoryId='+encodeURIComponent(id);else location.href='index.html'}
 function removeProject(id){if(confirm('এই shared Project Memory মুছে ফেলবেন?')){window.APYVION_MEMORY.remove(id);render()}}
 render();
-</script></body></html>
+</script>
+</body>
+</html>
