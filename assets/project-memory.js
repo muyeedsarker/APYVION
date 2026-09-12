@@ -29,12 +29,12 @@ window.APYVION_MEMORY = (function(){
   function safeContact(v){return String(v||'').trim().slice(0,200)}
 
   // Project Memory → Services/Social Resume bridge.
-  // The target pages already load this file before their page scripts run.
   function restoreFromQuery(){
     try{
       const id=new URLSearchParams(location.search).get('memoryId');
       if(!id)return;
       const p=get(id); if(!p)return;
+      window.__APYVION_RESUME_MEMORY_ID=p.id;
       const now=Date.now();
       if(p.module==='Social Media Studio'){
         const record={
@@ -61,7 +61,6 @@ window.APYVION_MEMORY = (function(){
   }
   restoreFromQuery();
 
-  // Services Center's inline page script renders first; this fills the form after DOM is ready.
   document.addEventListener('DOMContentLoaded',function(){
     try{
       const d=window.__APYVION_RESUME_SERVICE;
