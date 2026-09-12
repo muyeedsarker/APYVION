@@ -27,5 +27,57 @@ window.APYVION_MEMORY = (function(){
     return upsert(p);
   }
   function safeContact(v){return String(v||'').trim().slice(0,200)}
+
+  // Project Memory → Services/Social Resume bridge.
+  // The target pages already load this file before their page scripts run.
+  function restoreFromQuery(){
+    try{
+      const id=new URLSearchParams(location.search).get('memoryId');
+      if(!id)return;
+      const p=get(id); if(!p)return;
+      const now=Date.now();
+      if(p.module==='Social Media Studio'){
+        const record={
+          id:now, client:p.client||'', project:p.project||'', work:p.work||'Setup',
+          platforms:Array.isArray(p.platforms)?p.platforms:[],
+          checks:Array.isArray(p.checks)?p.checks:[], savedAt:new Date().toISOString(), memoryId:p.id
+        };
+        localStorage.setItem('apyvion_social_project_v1',JSON.stringify(record));
+        localStorage.setItem('apyvion_social_resume_memory_id',p.id);
+      }
+      if(p.module==='Professional Services Center'){
+        const record={
+          id:now, client:p.client||'', project:p.project||'', contact:p.contact||'',
+          status:p.status||'New', price:p.price||'', payment:p.payment||'Not Set',
+          notes:p.notes||'', services:Array.isArray(p.services)?p.services:[],
+          updatedAt:new Date().toISOString(), memoryId:p.id
+        };
+        localStorage.setItem('apyvion_service_projects_v1',JSON.stringify([record]));
+        localStorage.setItem('apyvion_service_resume_memory_id',p.id);
+        window.__APYVION_RESUME_SERVICE=record;
+      }
+      touch(id,'Project resumed from Project Memory');
+    }catch(e){}
+  }
+  restoreFromQuery();
+
+  // Services Center's inline page script renders first; this fills the form after DOM is ready.
+  document.addEventListener('DOMContentLoaded',function(){
+    try{
+      const d=window.__APYVION_RESUME_SERVICE;
+      if(!d || !document.getElementById('client'))return;
+      const $=id=>document.getElementById(id);
+      if($('client'))$('client').value=d.client||'';
+      if($('project'))$('project').value=d.project||'';
+      if($('contact'))$('contact').value=d.contact||'';
+      if($('status'))$('status').value=d.status||'New';
+      if($('price'))$('price').value=d.price||'';
+      if($('payment'))$('payment').value=d.payment||'Not Set';
+      if($('notes'))$('notes').value=d.notes||'';
+      document.querySelectorAll('#serviceList input').forEach(x=>x.checked=(d.services||[]).includes(x.value));
+      window.currentId=d.id;
+    }catch(e){}
+  });
+
   return {KEY,read,list,get,upsert,remove,touch,safeContact};
 })();
