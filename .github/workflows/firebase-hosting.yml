@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -13,6 +14,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Verify Google credentials secret is available
+        shell: bash
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: |
+          if [ -z "$GOOGLE_CREDENTIALS" ]; then
+            echo "::error::GOOGLE_CREDENTIALS is empty or unavailable to this workflow."
+            exit 1
+          fi
+          echo "GOOGLE_CREDENTIALS is available to the workflow."
 
       - name: Authenticate to Google Cloud with ADC
         uses: google-github-actions/auth@v3
