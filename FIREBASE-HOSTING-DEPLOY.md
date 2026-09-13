@@ -33,7 +33,7 @@ Add these GitHub repository secrets:
 For a more modern GitHub setup, prefer Firebase's official GitHub integration (`firebase init hosting:github`) so Firebase creates and manages the deployment credentials.
 
 ## 5. Firebase Web App configuration
-Edit `aifactory/firebase-config.js` and place the Firebase Web App configuration from Firebase Console there. Do not put server/service-account secrets in browser code.
+Edit `firebase-config.js` (repo root) and place the Firebase Web App configuration from Firebase Console there. Do not put server/service-account secrets in browser code.
 
 ## 6. Cloudshelf
-Keep Cloudshelf API credentials server-side. Do not place API keys in `aifactory/assets/*.js`. Hosting serves the static frontend; protected Cloudshelf operations should go through a trusted backend/Cloud Functions boundary.
+Keep Cloudshelf API credentials server-side. Do not place API keys in `assets/*.js`. Hosting serves the static frontend; protected Cloudshelf operations should go through a trusted backend/Cloud Functions boundary.
