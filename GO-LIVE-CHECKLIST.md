@@ -30,10 +30,10 @@ git push -u origin main
 
 ## ধাপ ৩ — Web App Config বসান (Vault/Auth চালু করতে)
 
-- `aifactory/firebase-config.js` খুলে সব `YOUR_...` জায়গায় ধাপ ২-এর config বসান
+- `firebase-config.js` খুলে সব `YOUR_...` জায়গায় ধাপ ২-এর config বসান
 - Firebase Console → **Authentication → Sign-in method → Email/Password → Enable**
 
-বিস্তারিত: `aifactory/FIREBASE-SETUP.md`
+বিস্তারিত: `FIREBASE-SETUP.md`
 
 ## ধাপ ৪ — CLI দিয়ে প্রথমবার ম্যানুয়ালি Deploy করুন
 
@@ -70,9 +70,9 @@ firebase deploy --only functions:analyzeIdea,functions:planProduct,functions:des
 ```
 
 Deploy শেষে টার্মিনালে যে ৪টা Function URL দেখাবে, সেগুলো ও `APYVION_CLIENT_KEY`-এর
-মান `aifactory/ai-config.js`-এ কমেন্ট খুলে বসান।
+মান `ai-config.js`-এ কমেন্ট খুলে বসান।
 
-বিস্তারিত: `aifactory/functions/ai-backend/README.md`
+বিস্তারিত: `functions/ai-backend/README.md`
 
 ## ধাপ ৭ — Cloudshelf (ঐচ্ছিক)
 
@@ -84,7 +84,7 @@ firebase deploy --only functions:cloudshelf
 `CLOUDSHELF_API_URL` এনভায়রনমেন্ট ভ্যারিয়েবল ও প্রতিটা action-এর GraphQL query
 আপনার Cloudshelf অ্যাকাউন্ট অনুযায়ী বসাতে হবে।
 
-বিস্তারিত: `aifactory/CLOUDSHELF-SETUP.md`
+বিস্তারিত: `CLOUDSHELF-SETUP.md`
 
 ---
 
