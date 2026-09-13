@@ -1,13 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/firebase/firebase-tools/master/schema/firebase-config.json",
   "hosting": {
-    "public": "aifactory",
+    "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
       "**/*.zip",
-      "**/*.md"
+      "**/*.md",
+      "functions/**",
+      "integrations/**"
     ],
     "cleanUrls": true,
     "trailingSlash": false,
@@ -35,20 +37,20 @@
     ]
   },
   "firestore": {
-    "rules": "aifactory/firestore.rules",
-    "indexes": "aifactory/firestore.indexes.json"
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   },
   "storage": {
-    "rules": "aifactory/storage.rules"
+    "rules": "storage.rules"
   },
   "functions": [
     {
-      "source": "aifactory/functions/cloudshelf",
+      "source": "functions/cloudshelf",
       "codebase": "cloudshelf",
       "runtime": "nodejs20"
     },
     {
-      "source": "aifactory/functions/ai-backend",
+      "source": "functions/ai-backend",
       "codebase": "ai-backend",
       "runtime": "nodejs20"
     }
