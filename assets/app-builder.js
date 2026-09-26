@@ -159,18 +159,53 @@ th { color: var(--pv-text-dim); font-weight: 600; }
   }
 
   function buildAppJs(plan) {
-    return `// ${appTitle(plan)} — শুরুর Frontend JS
-// এখানে Navigation, ছোট Form Validation ও Demo State রাখা হয়েছে।
-// আসল Backend যুক্ত হলে fetch() দিয়ে API কল করুন (backend/routes/ ফোল্ডার দেখুন)।
+    const title = appTitle(plan);
+    const features = (plan.coreFeatures || []).slice(0, 8);
+    const featureMap = JSON.stringify(features);
+    return `// ${title} — generated interactive frontend
+document.addEventListener('DOMContentLoaded', () => {
+  const notice = (message) => {
+    let el = document.getElementById('appNotice');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'appNotice';
+      el.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;padding:14px 16px;border-radius:12px;background:var(--pv-surface);color:var(--pv-text);box-shadow:var(--pv-shadow)';
+      document.body.appendChild(el);
+    }
+    el.textContent = message;
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.remove(), 3000);
+  };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll("form[data-app-form]");
-  forms.forEach((form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("এটা একটা Demo ফর্ম — Backend যুক্ত হলে এখানে API কল হবে।");
+  const features = ${featureMap};
+  document.querySelectorAll('[data-feature]').forEach((card) => {
+    card.addEventListener('click', () => notice('✓ ' + (card.dataset.feature || 'Feature') + ' চালু করার জায়গা প্রস্তুত।'));
+  });
+
+  document.querySelectorAll('form[data-app-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const data = Object.fromEntries(new FormData(form).entries());
+      localStorage.setItem('generated_app_last_form', JSON.stringify({ data, savedAt: Date.now() }));
+      notice('✓ তথ্য সফলভাবে সংরক্ষণ হয়েছে।');
+      form.reset();
     });
   });
+
+  const addButton = document.querySelector('[data-add-record]');
+  const tableBody = document.querySelector('[data-records]');
+  if (addButton && tableBody) {
+    addButton.addEventListener('click', () => {
+      const name = prompt('নতুন রেকর্ডের নাম দিন');
+      if (!name || !name.trim()) return;
+      const row = document.createElement('tr');
+      row.innerHTML = '<td></td><td>Active</td><td>' + new Date().toLocaleDateString('bn-BD') + '</td>';
+      row.firstElementChild.textContent = name.trim();
+      tableBody.prepend(row);
+      notice('✓ নতুন রেকর্ড যোগ হয়েছে।');
+    });
+  }
 });
 `;
   }
