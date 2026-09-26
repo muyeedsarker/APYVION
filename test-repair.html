@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>APYVION — Audit &amp; Upgrade</title>
-<meta name="description" content="Link বা ZIP দিন → সমস্যা শনাক্ত → Upgrade/Fix → Retest">
+<meta name="description" content="Project দিন → সমস্যা দেখুন → প্রয়োজনমতো Fix করুন">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/app-builder.css">
 <link rel="stylesheet" href="assets/test-repair.css">
@@ -12,20 +12,20 @@
 <body>
 <main class="jf-wrap">
   <header class="jf-header">
-    <div class="jf-logo">🏭 APYVION</div>
-    <h1 class="jf-title">🔍 Audit &amp; Upgrade</h1>
+    <div class="jf-logo">✨ APYVION</div>
+    <h1 class="jf-title">🧪 Project Check</h1>
     <p class="jf-subtitle">Link বা ZIP দিন → সমস্যা শনাক্ত → Upgrade/Fix → Retest</p>
   </header>
 
   <section class="jf-panel audit-source-grid">
     <div class="audit-source-card">
-      <h2>📦 ZIP Audit</h2>
-      <p>পুরো project ZIP আপলোড করে structure, HTML, CSS, JS, config, Firebase ও security indicators পরীক্ষা করুন।</p>
+      <h2>📦 ZIP Check</h2>
+      <p>আপনার project ZIP দিন এবং দ্রুত পরীক্ষা করুন।</p>
       <input id="jfZipInput" type="file" accept=".zip,application/zip">
-      <button class="jf-btn jf-btn-primary" id="jfZipScanBtn">🔍 ZIP Scan শুরু করুন</button>
+      <button class="jf-btn jf-btn-primary" id="jfZipScanBtn">🔍 Check করুন</button>
     </div>
     <div class="audit-source-card">
-      <h2>🔗 Link Audit</h2>
+      <h2>🔗 Live Link Check</h2>
       <p>Live URL দিন। একই-origin হলে APYVION page content ও references পরীক্ষা করবে; cross-origin হলে সীমাবদ্ধতা আলাদা দেখাবে।</p>
       <input id="jfUrlInput" type="url" placeholder="https://example.com/">
       <button class="jf-btn jf-btn-primary" id="jfUrlScanBtn">🔍 Link Scan শুরু করুন</button>
@@ -33,13 +33,13 @@
   </section>
 
   <section class="jf-panel" style="margin-top:20px">
-    <h2>🧩 Upgrade Options</h2>
-    <p>Scan-এর পরে সমস্যাগুলো category অনুযায়ী আলাদা হবে। প্রতিটি category থেকে নিরাপদ upgrade বেছে নিয়ে নতুন ZIP তৈরি করা যাবে।</p>
+    <h2>🛠️ Quick Fix</h2>
+    <p>Check-এর পরে প্রয়োজন অনুযায়ী নিরাপত্তা, SEO, performance, Firebase/config ও code quality-এর Fix বেছে নিতে পারবেন।</p>
     <div class="audit-upgrade-grid">
-      <button class="jf-btn" data-upgrade-category="security">🔐 Security Upgrade</button>
-      <button class="jf-btn" data-upgrade-category="seo">🔎 SEO &amp; Social Meta</button>
+      <button class="jf-btn" data-upgrade-category="security">🔐 Security</button>
+      <button class="jf-btn" data-upgrade-category="seo">🔎 SEO</button>
       <button class="jf-btn" data-upgrade-category="performance">⚡ Performance</button>
-      <button class="jf-btn" data-upgrade-category="firebase">🔥 Firebase/Config</button>
+      <button class="jf-btn" data-upgrade-category="firebase">🔥 Firebase</button>
       <button class="jf-btn" data-upgrade-category="quality">🧪 Code Quality</button>
     </div>
   </section>
@@ -56,14 +56,14 @@
     </div>
     <div id="jfCheckList" class="jf-check-list"></div>
     <div class="jf-actions" style="margin-top:24px">
-      <button class="jf-btn" id="jfUpgradeAllBtn">🚀 Upgrade/Fix সব নিরাপদ সমস্যা</button>
-      <button class="jf-btn" id="jfRetestBtn">🧪 Retest</button>
-      <button class="jf-btn" id="jfDownloadBtn">⬇️ Upgraded ZIP</button>
-      <a class="jf-btn jf-btn-primary" href="secure.html">➡️ Secure</a>
+      <button class="jf-btn" id="jfUpgradeAllBtn">🚀 Safe Fix সবগুলো</button>
+      <button class="jf-btn" id="jfRetestBtn">🧪 আবার Check</button>
+      <button class="jf-btn" id="jfDownloadBtn">⬇️ Updated ZIP</button>
+      <a class="jf-btn jf-btn-primary" href="index.html">🏠 Home</a>
     </div>
   </section>
 
-  <p class="jf-footer-note">APYVION — Audit &amp; Upgrade · Static checks সর্বোচ্চ কভারেজে চালানো হবে; যেসব বিষয় browser/remote access ছাড়া নিশ্চিত করা যায় না সেগুলো Manual Review হিসেবে দেখানো হবে।</p>
+  <p class="jf-footer-note">APYVION — সহজ Check, পরিষ্কার ফলাফল, প্রয়োজনমতো Fix</p>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="assets/test-repair.js"></script>
