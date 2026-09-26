@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </section>
 
   <div class="card-grid">
-    ${features.map((f) => `<div class="card"><h3>${escapeHtml(f)}</h3></div>`).join("\n    ")}
+    ${features.map((f) => `<button class="card" type="button" data-feature="${escapeHtml(f)}"><h3>${escapeHtml(f)}</h3><span>খুলুন →</span></button>`).join("\n    ")}
   </div>
 
   <script src="firebase-config.js"></script>
