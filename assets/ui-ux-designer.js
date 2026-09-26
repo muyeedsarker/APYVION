@@ -106,8 +106,21 @@
   }
 
   function apply(container, t) {
-    ["primary","accent","bg","surface","text","textDim","headingFont","bodyFont","radius","shadow"]
-      .forEach(k => container.style.setProperty("--pv-" + k.replace("textDim","text-dim"), t[k] || ""));
+    const vars = {
+      primary: "--pv-primary",
+      accent: "--pv-accent",
+      bg: "--pv-bg",
+      surface: "--pv-surface",
+      text: "--pv-text",
+      textDim: "--pv-text-dim",
+      headingFont: "--pv-heading-font",
+      bodyFont: "--pv-body-font",
+      radius: "--pv-radius",
+      shadow: "--pv-shadow"
+    };
+    Object.entries(vars).forEach(([key, cssVar]) => {
+      if (t[key] != null) container.style.setProperty(cssVar, t[key]);
+    });
   }
 
   function info(t) {
